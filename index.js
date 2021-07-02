@@ -1,3 +1,5 @@
+module.exports = Phrase;
+
 // function reverse(string) {
 //   return Array.from(string).reverse().join("");
 // }
@@ -31,7 +33,12 @@ function Phrase(content) {
     return string.toLowerCase();
   }
   this.processedContent = function processedContent() {
-    return this.processor(this.content);
+    return this.letters().toLowerCase();
+  }
+
+  //Returns the letters in the content and miss punctuation
+  this.letters = function letters() {
+    return (this.content.match(/[a-z]/gi) || []).join("");
   }
 
   this.palindrome = function palindrome () {
